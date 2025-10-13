@@ -25,14 +25,15 @@ def game():
             if event.type == pygame.QUIT:
                 running = False
         keys_pressed = pygame.key.get_pressed()
-        if keys_pressed[pygame.K_SPACE]:
-            bullet = Bullet()
+        if keys_pressed[pygame.K_SPACE] and pygame.KEYDOWN:
+            bullet = Bullet(player.rect.right, player.rect.centery)
             bullets.add(bullet)
             all_sprites.add(bullets)
         SCREEN.fill(BG_COLOUR)
         all_sprites.update(dt, keys_pressed)
         all_sprites.draw(SCREEN)
         hits = pygame.sprite.spritecollide(player, enemies, 1)
+        pygame.sprite.groupcollide(bullets, enemies, 1, 1)
         if hits:
             running = False
 
