@@ -16,11 +16,11 @@ class Player(pygame.sprite.Sprite):
         self.vel = pygame.math.Vector2(0, 0)
         if keys_pressed[pygame.K_LEFT]:
             self.vel.x = -1
-        elif keys_pressed[pygame.K_RIGHT]:
+        if keys_pressed[pygame.K_RIGHT]:
             self.vel.x = 1
         if keys_pressed[pygame.K_UP]:
             self.vel.y = -1
-        elif keys_pressed[pygame.K_DOWN]:
+        if keys_pressed[pygame.K_DOWN]:
             self.vel.y = 1
         self.pos += self.vel * self.speed * dt
         self.rect.center = self.pos

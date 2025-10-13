@@ -10,5 +10,5 @@ class Bullet(pygame.sprite.Sprite):
         self.speed = 600
     def update(self, dt, keys_pressed):
         self.rect.x += self.speed * dt
-        if self.rect.left == RESOLUTION[0]:
+        if self.rect.left > RESOLUTION[0]:
             self.kill()

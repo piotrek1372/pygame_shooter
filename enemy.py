@@ -15,4 +15,4 @@ class Enemy(pygame.sprite.Sprite):
         self.pos.x += self.speed * dt
         self.rect.center = self.pos
         if self.rect.left > RESOLUTION[0]:
-            self.kill
+            self.kill()

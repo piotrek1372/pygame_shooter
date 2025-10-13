@@ -18,17 +18,18 @@ def game():
     for _ in range(5):
         enemy = Enemy()
         enemies.add(enemy)
-    all_sprites.add(enemies)
+        all_sprites.add(enemy)
     while running:
         dt = clock.tick(FPS) / 1000
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    bullet = Bullet(player.rect.right, player.rect.centery)
+                    bullets.add(bullet)
+                    all_sprites.add(bullet)
         keys_pressed = pygame.key.get_pressed()
-        if keys_pressed[pygame.K_SPACE] and pygame.KEYDOWN:
-            bullet = Bullet(player.rect.right, player.rect.centery)
-            bullets.add(bullet)
-            all_sprites.add(bullets)
         SCREEN.fill(BG_COLOUR)
         all_sprites.update(dt, keys_pressed)
         all_sprites.draw(SCREEN)
