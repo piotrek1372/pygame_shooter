@@ -12,8 +12,9 @@ class Player(pygame.sprite.Sprite):
         self.pos = pygame.math.Vector2(self.rect.center)
         self.vel = pygame.math.Vector2(0, 0)
         self.speed = 300
-    def update(self, dt, keys_pressed):
+    def update(self, dt):
         self.vel = pygame.math.Vector2(0, 0)
+        keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_LEFT]:
             self.vel.x = -1
         if keys_pressed[pygame.K_RIGHT]:

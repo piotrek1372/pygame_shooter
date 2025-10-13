@@ -11,7 +11,7 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.center = (randint(-100, - 50), randint(0, RESOLUTION[1]))
         self.pos = pygame.math.Vector2(self.rect.center)
         self.speed = randint(150, 250)
-    def update(self, dt, keys_pressed):
+    def update(self, dt):
         self.pos.x += self.speed * dt
         self.rect.center = self.pos
         if self.rect.left > RESOLUTION[0]:
