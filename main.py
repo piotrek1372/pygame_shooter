@@ -57,13 +57,14 @@ def game():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-                game_over_font = pygame.font.Font(None, 72)
-                game_over_text = game_over_font.render("Koniec Gry!", 1, (255, 0, 0))
-                game_over_text_rect = game_over_text.get_rect(center=(RESOLUTION[0] // 2, RESOLUTION[1] // 2))
-                SCREEN.blit(game_over_text, game_over_text_rect)
         score_text = font.render(f"Wynik: {score}", 1, PLAYER_COLOUR)
         SCREEN.blit(score_text, (10, 10))
         SCREEN.fill(BG_COLOUR)
+        if game_over:
+            game_over_font = pygame.font.Font(None, 72)
+            game_over_text = game_over_font.render("Koniec Gry!", 1, (255, 0, 0))
+            game_over_text_rect = game_over_text.get_rect(center=(RESOLUTION[0] // 2, RESOLUTION[1] // 2))
+            SCREEN.blit(game_over_text, game_over_text_rect)
         pygame.display.flip()
     pygame.quit()
     sys.exit()
