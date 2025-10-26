@@ -4,7 +4,7 @@ from settings import RESOLUTION, PLAYER_COLOUR
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.Surface((300, 400))
+        self.image = pygame.Surface((100, 120))
         self.image.fill(PLAYER_COLOUR)
         self.rect = self.image.get_rect()
         self.rect.centerx = RESOLUTION[0] // 2
@@ -12,9 +12,8 @@ class Player(pygame.sprite.Sprite):
         self.pos = pygame.math.Vector2(self.rect.center)
         self.vel = pygame.math.Vector2(0, 0)
         self.speed = 300
-    def update(self, dt):
+    def update(self, dt, keys_pressed):
         self.vel = pygame.math.Vector2(0, 0)
-        keys_pressed = pygame.key.get_pressed()
         if keys_pressed[pygame.K_LEFT]:
             self.vel.x = -1
         elif keys_pressed[pygame.K_RIGHT]:
