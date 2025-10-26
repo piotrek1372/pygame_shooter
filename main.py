@@ -17,8 +17,10 @@ def game():
             if event.type == pygame.QUIT:
                 running = False
         SCREEN.fill(BG_COLOUR)
-        all_sprites.update()
+        all_sprites.update(dt)
         all_sprites.draw(SCREEN)
+
+        pygame.display.flip()
     pygame.quit()
     sys.exit()
 
