@@ -11,10 +11,10 @@ def game():
     running = True
     all_sprites = pygame.sprite.Group()
     player = Player()
-    enemy = Enemy()
     enemies = pygame.sprite.Group()
     all_sprites.add(player)
     for _ in range(5):
+        enemy = Enemy()
         enemies.add(enemy)
     all_sprites.add(enemies)
     while running:
