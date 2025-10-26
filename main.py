@@ -12,9 +12,11 @@ def game():
     all_sprites = pygame.sprite.Group()
     player = Player()
     enemy = Enemy()
+    enemies = pygame.sprite.Group()
     all_sprites.add(player)
     for _ in range(5):
-        all_sprites.add(enemy)
+        enemies.add(enemy)
+    all_sprites.add(enemies)
     while running:
         dt = clock.tick(FPS) / 1000
         for event in pygame.event.get():
@@ -23,7 +25,7 @@ def game():
         SCREEN.fill(BG_COLOUR)
         all_sprites.update(dt)
         all_sprites.draw(SCREEN)
-        hits = pygame.sprite.spritecollide(player, enemy, 1)
+        hits = pygame.sprite.spritecollide(player, enemies, 1)
         if hits:
             running = False
 
